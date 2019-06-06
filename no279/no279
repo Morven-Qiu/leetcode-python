@@ -1,0 +1,15 @@
+class Solution(object):
+    def numSquares(self,n):
+        dp = [n]*(n+1)
+        dp[0]=0
+        for item in range(1,n+1):
+            j=1
+            while j*j <= item:
+              dp[item] = min(dp[item],dp[item-j*j] +1)
+              j = j+1;
+
+        print(dp)
+        return dp[n];
+
+s= Solution()
+print(s.numSquares(13));
